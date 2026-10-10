@@ -30,7 +30,7 @@
         {
           "backgroundColor": "#f7f9fc",
           "image": "./assets/images/todoicon.png",
-          "imageWidth": 200
+          "imageWidth": 200 
         }
       ],
       "expo-font",
