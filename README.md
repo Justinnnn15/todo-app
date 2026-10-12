@@ -1,56 +1,55 @@
-# Welcome to your Expo app 👋
+# TODO
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple to-do list mobile app built with React Native and Expo. It was made as a mini project for a Mobile Application Development course.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Add, edit, delete, and mark tasks as done
+- Categories (General, School, Work, Personal) with filter buttons
+- Search tasks by title
+- Optional due dates, with overdue tasks shown in red
+- Tasks are saved on the phone, so they stay after closing the app
 
-   ```bash
-   npm install
-   ```
+## Built With
 
-2. Start the app
+- React Native with Expo (Expo Router)
+- TypeScript
+- SQLite (expo-sqlite) for local storage
+- @react-native-community/datetimepicker for due dates
+- Bebas Neue font (@expo-google-fonts/bebas-neue)
 
-   ```bash
-   npx expo start
-   ```
+## How It Works
 
-In the output, you'll find options to open the app in a
+The app keeps one `tasks` table in a local SQLite database with the columns id, title, done, category, and due_date. Each action runs one SQL command:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+| Action | SQL |
+| --- | --- |
+| Add task | INSERT |
+| View, search, filter | SELECT |
+| Edit task, mark done | UPDATE |
+| Delete task | DELETE |
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+The main screen is in `src/app/index.tsx`.
 
-## Get a fresh project
+## Run the App
 
-When you're ready, run:
+Requirements: Node.js and the Expo Go app on an Android or iOS phone.
 
-```bash
-npm run reset-project
+```
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Scan the QR code with Expo Go. The phone and computer must be on the same Wi-Fi. If it won't connect, use `npx expo start --tunnel`.
 
-### Other setup steps
+The web preview is not supported because SQLite does not run on web in this setup.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Build the APK
 
-## Learn more
+```
+npm install -g eas-cli
+eas login
+eas build -p android --profile preview
+```
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+When the build finishes, download the APK from the link shown in the terminal and install it on an Android phone.
