@@ -17,6 +17,7 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
+      "package": "com.justin.todoapp",
       "predictiveBackGestureEnabled": false
     },
     "web": {
@@ -30,7 +31,7 @@
         {
           "backgroundColor": "#f7f9fc",
           "image": "./assets/images/todoicon.png",
-          "imageWidth": 200 
+          "imageWidth": 200
         }
       ],
       "expo-font",
@@ -40,6 +41,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "2b72d7aa-3464-47ba-8dcd-6bacfbd8f2ea"
+      }
     }
   }
 }
